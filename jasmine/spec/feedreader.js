@@ -94,6 +94,8 @@ $(function() {
      * Remember, loadFeed() is asynchronous so this test will require
      * the use of Jasmine's beforeEach and asynchronous done() function.
      */
+
+    //Load the feed and check the number of entries in the feed.
     beforeEach(function(done) {
       loadFeed(0, () => done());
     });
@@ -114,6 +116,8 @@ $(function() {
      * by the loadFeed function that the content actually changes.
      * Remember, loadFeed() is asynchronous.
      */
+
+    //Load the feed and save the HTML to the oldFeed variable.
     beforeEach(function(done) {
       loadFeed(0, () => {
         oldFeed = feed.innerHTML;
@@ -121,6 +125,8 @@ $(function() {
       });
     });
 
+    //After the feed loads again, compare the current HTML with the HTML saved
+    //in oldFeed.
     it('changes content', function(done) {
       const newFeed = feed.innerHTML;
       expect(oldFeed).not.toBe(newFeed);
