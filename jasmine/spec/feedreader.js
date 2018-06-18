@@ -76,10 +76,10 @@ $(function() {
       */
     it('is clicked and hidden', function() {
       menuIcon.click();
-      expect(document.body.className).not.toBe('menu-hidden');
+      expect($('body').hasClass('menu-hidden')).not.toBe(true);
 
       menuIcon.click();
-      expect(document.body.className).toBe('menu-hidden');
+      expect($('body').hasClass('menu-hidden')).toBe(true);
     });
   });
 
@@ -101,7 +101,7 @@ $(function() {
     });
 
     it('loads an entry', function(done) {
-      expect(entry.length).toBeGreaterThan(0);
+      expect($('.feed').has('.entry').length).toBeGreaterThan(10);
       done();
     });
   });
